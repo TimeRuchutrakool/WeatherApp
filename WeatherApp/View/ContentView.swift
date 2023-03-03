@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    private var weatherCurrentVM = WeatherForecastViewModel()
+    
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button("Fetch") {
+                weatherCurrentVM.fetchForcastWeather(city: "bangkok")
+            }
         }
         .padding()
     }

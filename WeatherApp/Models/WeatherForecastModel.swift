@@ -13,7 +13,7 @@ struct WeatherForecastModel{
     let temp: Double?
     let icon: String?
     
-    var tempp: String{
+    var temperatureInString: String?{
         return String(format: "%.0f°C", temp!)
     }
 }

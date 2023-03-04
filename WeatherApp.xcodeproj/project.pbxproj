@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4675BE429B255A400473239 /* WeatherCurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4675BE329B255A400473239 /* WeatherCurrentView.swift */; };
 		F47D2DF029B0F99A00608239 /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47D2DEF29B0F99A00608239 /* WeatherAppApp.swift */; };
 		F47D2DF229B0F99A00608239 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47D2DF129B0F99A00608239 /* ContentView.swift */; };
 		F47D2DF429B0F99A00608239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47D2DF329B0F99A00608239 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4675BE329B255A400473239 /* WeatherCurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCurrentView.swift; sourceTree = "<group>"; };
 		F47D2DEC29B0F99A00608239 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47D2DEF29B0F99A00608239 /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		F47D2DF129B0F99A00608239 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				F47D2DEF29B0F99A00608239 /* WeatherAppApp.swift */,
 				F47D2E0029B0FB3F00608239 /* Models */,
 				F47D2E0129B0FB4C00608239 /* View */,
+				F47D2E0629B0FD2B00608239 /* ViewModel */,
 				F47D2E0929B0FEBC00608239 /* Services */,
 				F47D2DF329B0F99A00608239 /* Assets.xcassets */,
 				F47D2DF529B0F99A00608239 /* Preview Content */,
@@ -100,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				F47D2DF129B0F99A00608239 /* ContentView.swift */,
-				F47D2E0629B0FD2B00608239 /* ViewModel */,
+				F4675BE329B255A400473239 /* WeatherCurrentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				F47D2E1329B1EF9300608239 /* Constant.swift in Sources */,
 				F47D2E0B29B103F900608239 /* WeatherForecastModel.swift in Sources */,
 				F47D2DFF29B0FA9300608239 /* Webservice.swift in Sources */,
+				F4675BE429B255A400473239 /* WeatherCurrentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

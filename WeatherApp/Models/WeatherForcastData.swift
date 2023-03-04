@@ -15,15 +15,15 @@ struct WeatherForcastData: Decodable{
 
 struct List: Decodable{
     let dt: Double
-    let main: Main
-    let weather: [Weather]
+    let main: MainForecast
+    let weather: [WeatherForecast]
 }
 
-struct Main: Decodable{
+struct MainForecast: Decodable{
     let temp: Double
 }
 
-struct Weather: Decodable{
+struct WeatherForecast: Decodable{
 
     let icon: String
 }

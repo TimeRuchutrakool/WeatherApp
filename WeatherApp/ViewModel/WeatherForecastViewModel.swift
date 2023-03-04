@@ -20,7 +20,7 @@ class WeatherForecastViewModel:ObservableObject{
         webservice.getForcastWeather(city: city) { weathers in
             if let weathers = weathers{
                 for i in weathers{
-                    print(i.tempp)
+                    print(i.temperatureInString)
                 }
 
             }

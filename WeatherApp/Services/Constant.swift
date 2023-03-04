@@ -9,6 +9,6 @@ import Foundation
 
 struct Constant{
     //gitignore
-    static var AppID = "896fb084602581fca9645624170f4301"
+    static var AppID = "5994afc599c9fafb64bfed3f6d53a261"
     
 }

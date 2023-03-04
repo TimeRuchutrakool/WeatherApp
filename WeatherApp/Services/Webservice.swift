@@ -9,6 +9,7 @@ import Foundation
 
 struct Webservice{
     
+    
     func getCurrentWeather(city: String, units: String ,completion: @escaping ((WeatherCurrentModel?) -> Void)){
         
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(Constant.AppID)&units=\(units)") else{

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F4675BE429B255A400473239 /* WeatherCurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4675BE329B255A400473239 /* WeatherCurrentView.swift */; };
+		F4675BE729B32A2600473239 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = F4675BE629B32A2600473239 /* URLImage */; };
+		F4675BE929B339C000473239 /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4675BE829B339C000473239 /* WeatherForecastView.swift */; };
 		F47D2DF029B0F99A00608239 /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47D2DEF29B0F99A00608239 /* WeatherAppApp.swift */; };
 		F47D2DF229B0F99A00608239 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47D2DF129B0F99A00608239 /* ContentView.swift */; };
 		F47D2DF429B0F99A00608239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47D2DF329B0F99A00608239 /* Assets.xcassets */; };
@@ -24,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		F4675BE329B255A400473239 /* WeatherCurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCurrentView.swift; sourceTree = "<group>"; };
+		F4675BE829B339C000473239 /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
 		F47D2DEC29B0F99A00608239 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47D2DEF29B0F99A00608239 /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		F47D2DF129B0F99A00608239 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4675BE729B32A2600473239 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +108,7 @@
 			children = (
 				F47D2DF129B0F99A00608239 /* ContentView.swift */,
 				F4675BE329B255A400473239 /* WeatherCurrentView.swift */,
+				F4675BE829B339C000473239 /* WeatherForecastView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,6 +147,9 @@
 			dependencies = (
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+				F4675BE629B32A2600473239 /* URLImage */,
+			);
 			productName = WeatherApp;
 			productReference = F47D2DEC29B0F99A00608239 /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -170,6 +178,9 @@
 				Base,
 			);
 			mainGroup = F47D2DE329B0F99A00608239;
+			packageReferences = (
+				F4675BE529B32A2600473239 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = F47D2DED29B0F99A00608239 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -206,6 +217,7 @@
 				F47D2E1329B1EF9300608239 /* Constant.swift in Sources */,
 				F47D2E0B29B103F900608239 /* WeatherForecastModel.swift in Sources */,
 				F47D2DFF29B0FA9300608239 /* Webservice.swift in Sources */,
+				F4675BE929B339C000473239 /* WeatherForecastView.swift in Sources */,
 				F4675BE429B255A400473239 /* WeatherCurrentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +419,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4675BE529B32A2600473239 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4675BE629B32A2600473239 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4675BE529B32A2600473239 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F47D2DE429B0F99A00608239 /* Project object */;
 }

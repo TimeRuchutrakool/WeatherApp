@@ -68,7 +68,7 @@ struct Webservice{
                 let decodedData = try JSONDecoder().decode(WeatherForcastData.self, from: data)
                 let list = decodedData.list
                 let dateNow = Calendar.current.dateComponents([.year, .month,.day], from: Date())
-                //print(dateNow)
+            
                 for i in list{
                     
                     let dt = NSDate(timeIntervalSince1970: i.dt) as Date
@@ -81,9 +81,7 @@ struct Webservice{
                     }
                     
                 }
-                for i in weatherArray{
-                    print(i.dt)
-                }
+                
                 
                 let groupedWeather = groupByDate(weatherArray: weatherArray)
                 

@@ -16,6 +16,7 @@ struct WeatherCurrentView: View {
 
     init(){
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
         weatherCurrentVM = WeatherCurrentViewModel()
         weatherCurrentVM.fetchCurrentWeather(city: "bangkok", units: "metric")
     }

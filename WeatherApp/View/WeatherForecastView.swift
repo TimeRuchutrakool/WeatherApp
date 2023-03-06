@@ -58,7 +58,7 @@ struct WeatherForecastView: View {
                 }
             }
             
-            .navigationTitle(cityName)
+            
         }
         
     }

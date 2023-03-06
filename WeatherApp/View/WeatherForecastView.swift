@@ -17,14 +17,14 @@ struct WeatherForecastView: View {
     init(cityName: String) {
         self.cityName = cityName
         self.weatherForecastVM = WeatherForecastViewModel()
-        UINavigationBar.appearance().tintColor = .white
+       
         weatherForecastVM.fetchForcastWeather(city: cityName)
     }
     
     
     var body: some View {
         
-        NavigationView{
+       
             
             ZStack(alignment: .center){
                 GeometryReader{ geometry in
@@ -58,9 +58,7 @@ struct WeatherForecastView: View {
                 }
             }
             
-            
-        }
-        
+            .navigationTitle(cityName)
     }
     
     struct WeatherForecastView_Previews: PreviewProvider {

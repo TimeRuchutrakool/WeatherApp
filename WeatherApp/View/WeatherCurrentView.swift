@@ -61,7 +61,7 @@ struct WeatherCurrentView: View {
                 
             }//Z1
         }
-        
+        .accentColor(.white)
     }
     
     struct WeatherCurrentView_Previews: PreviewProvider {

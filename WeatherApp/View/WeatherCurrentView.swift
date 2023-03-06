@@ -24,33 +24,38 @@ struct WeatherCurrentView: View {
         
         NavigationView{
             ZStack{//Z1
-                Image("background")
-                    .edgesIgnoringSafeArea(.all)
-                VStack{//V1
-                    CityTextField(cityName: $weatherCurrentVM.cityName,search: weatherCurrentVM.search)
-                    
-                    CityLabelAndConvertButton(cityName: weatherCurrentVM.cityName,search: weatherCurrentVM.search,convertUnits: $weatherCurrentVM.convertUnits)
+                GeometryReader{ geometry in
+                    Image("background")
+                        .resizable()
+                        .aspectRatio(geometry.size,contentMode: .fill)
+                        .ignoresSafeArea()
                         
-                    
-                    Text(weatherCurrentVM.temperatureInString)
-                        .font(.custom("Arial", size: 90))
-                        .bold()
-                        .foregroundColor(.white)
+                    VStack{//V1
+                        CityTextField(cityName: $weatherCurrentVM.cityName,search: weatherCurrentVM.search)
+                        Spacer()
+                            .frame(height: UIScreen.main.bounds.height*0.1)
+                        CityLabelAndConvertButton(cityName: weatherCurrentVM.cityName,search: weatherCurrentVM.search,convertUnits: $weatherCurrentVM.convertUnits)
                         
                         
-                    Text(weatherCurrentVM.date)
-                        .font(.custom("Arial", size: 20))
-                        .foregroundColor(.white)
-                    Spacer()
-                        .frame(height: 50)
-                    HumidityAndWeatherImage(humidityInString: weatherCurrentVM.humidityInString,imageName: weatherCurrentVM.icon,description: weatherCurrentVM.description)
-                    Spacer()
-                        .frame(height: 30)
-                    
-                    ForecastWeatherButton(city: weatherCurrentVM.cityName)
-                    
-                }//V1
-                
+                        Text(weatherCurrentVM.temperatureInString)
+                            .font(.custom("Arial", size: 90))
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        
+                        Text(weatherCurrentVM.date)
+                            .font(.custom("Arial", size: 20))
+                            .foregroundColor(.white)
+                        Spacer()
+                            .frame(height: 50)
+                        HumidityAndWeatherImage(humidityInString: weatherCurrentVM.humidityInString,imageName: weatherCurrentVM.icon,description: weatherCurrentVM.description)
+                        Spacer()
+                            .frame(height: 30)
+                        
+                        ForecastWeatherButton(city: weatherCurrentVM.cityName)
+                        
+                    }//V1
+                }
                 .navigationTitle("Weather")
                 
             }//Z1
@@ -74,7 +79,7 @@ struct CityTextField: View {
                 .foregroundColor(.purple).opacity(0.4)
             TextField("Search", text: $cityName){
                 search()
-            }
+            }.foregroundColor(.black)
             
         }
         .padding()
@@ -85,7 +90,7 @@ struct CityTextField: View {
         .shadow(radius: 7)
         .frame(width: UIScreen.main.bounds.width*0.8)
         .padding(25)
-        .offset(y:-UIScreen.main.bounds.height*0.10)
+        
     }
 }
 

@@ -7,13 +7,12 @@
 
 import Foundation
 
-struct WeatherForecastModel{
+struct WeatherForecastModel: Identifiable{
     
+    let id: Date?
     let dt: Date?
     let temp: Double?
     let icon: String?
     
-    var temperatureInString: String?{
-        return String(format: "%.0f°C", temp!)
-    }
+    
 }

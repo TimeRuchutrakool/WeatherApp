@@ -47,7 +47,7 @@ struct Webservice{
         
     }
     
-    func getForcastWeather(city: String, completion: @escaping (([WeatherForecastModel]?) -> Void)){
+    func getForcastWeather(city: String, completion: @escaping (([Date : [WeatherForecastModel]]?) -> Void)){
         
         var weatherArray = [WeatherForecastModel]()
         
@@ -67,15 +67,29 @@ struct Webservice{
             do{
                 let decodedData = try JSONDecoder().decode(WeatherForcastData.self, from: data)
                 let list = decodedData.list
+                let dateNow = Calendar.current.dateComponents([.year, .month,.day], from: Date())
+                //print(dateNow)
                 for i in list{
+                    
                     let dt = NSDate(timeIntervalSince1970: i.dt) as Date
-                    let temp = i.main.temp
-                    let icon = i.weather[0].icon
-                    let weatherItem = WeatherForecastModel(dt: dt, temp: temp, icon: icon)
-                    weatherArray.append(weatherItem)
+                    let dtComponent = Calendar.current.dateComponents([.year, .month,.day], from: dt)
+                    if dtComponent != dateNow{
+                        let temp = i.main.temp
+                        let icon = i.weather[0].icon
+                        let weatherItem = WeatherForecastModel(id: dt, dt: dt, temp: temp, icon: icon)
+                        weatherArray.append(weatherItem)
+                    }
+                    
                 }
+                for i in weatherArray{
+                    print(i.dt)
+                }
+                
+                let groupedWeather = groupByDate(weatherArray: weatherArray)
+                
+                
                 DispatchQueue.main.async {
-                    completion(weatherArray)
+                    completion(groupedWeather)
                 }
                 
             }catch{
@@ -83,6 +97,20 @@ struct Webservice{
             }
         }.resume()
     }
+    
+    func groupByDate(weatherArray: [WeatherForecastModel]) -> [Date: [WeatherForecastModel]] {
+        let preGroupDate: [Date: [WeatherForecastModel]] = [:]
+        let groupedByDate = weatherArray.reduce(into: preGroupDate) { accumulateValue, currentValue in
+            let components = Calendar.current.dateComponents([.year, .month,.day], from: currentValue.dt!)
+            let date = Calendar.current.date(from: components)!
+            let existing = accumulateValue[date] ?? []
+            accumulateValue[date] = existing + [currentValue]
+        }
+        
+        return groupedByDate
+    }
+
+
     
 }
 

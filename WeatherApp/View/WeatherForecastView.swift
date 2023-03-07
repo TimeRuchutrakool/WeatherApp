@@ -43,7 +43,7 @@ struct WeatherForecastView: View {
                                         
                                         ScrollView(.horizontal,showsIndicators: false){
                                             HStack{
-                                                ForEach(value,id: \.id){item in
+                                                ForEach(value,id: \.dt){item in
                                                     ForecastDetail(item: item)
                                                     
                                                 }
@@ -70,23 +70,23 @@ struct WeatherForecastView: View {
 }
 
 struct ForecastDetail: View {
-    var item: WeatherForecastModel
+    var item: ForecastModel
     var body: some View {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm a"
         
         return VStack{
-            Text(dateFormatter.string(from: item.dt!))
+            Text(item.date)
                 .font(.custom("Arial", size: 18))
                 .foregroundColor(.white)
                 .bold()
-            URLImage(URL(string: "https://openweathermap.org/img/wn/\(item.icon!)@2x.png")!) { image, info in
+            URLImage(URL(string: "https://openweathermap.org/img/wn/\(item.icon)@2x.png")!) { image, info in
                 image.resizable()
                     .frame(width: 100,height: 100)
                     .shadow(radius: 10,x: 15,y: 15)
             }
-            Text(String(format: "%.0f°C", item.temp!))
+            Text(item.temperature)
                 .font(.custom("Arial", size: 18))
                 .foregroundColor(.white)
                 .bold()

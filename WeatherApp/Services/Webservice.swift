@@ -47,7 +47,7 @@ struct Webservice{
         
     }
     
-    func getForcastWeather(city: String, completion: @escaping (([Date : [WeatherForecastModel]]?) -> Void)){
+    func getForcastWeather(city: String, completion: @escaping (([WeatherForecastModel]?) -> Void)){
         
         var weatherArray = [WeatherForecastModel]()
         
@@ -83,11 +83,11 @@ struct Webservice{
                 }
                 
                 
-                let groupedWeather = groupByDate(weatherArray: weatherArray)
+                //let groupedWeather = groupByDate(weatherArray: weatherArray)
                 
                 
                 DispatchQueue.main.async {
-                    completion(groupedWeather)
+                    completion(weatherArray)
                 }
                 
             }catch{
@@ -96,17 +96,17 @@ struct Webservice{
         }.resume()
     }
     
-    func groupByDate(weatherArray: [WeatherForecastModel]) -> [Date: [WeatherForecastModel]] {
-        let preGroupDate: [Date: [WeatherForecastModel]] = [:]
-        let groupedByDate = weatherArray.reduce(into: preGroupDate) { accumulateValue, currentValue in
-            let components = Calendar.current.dateComponents([.year, .month,.day], from: currentValue.dt!)
-            let date = Calendar.current.date(from: components)!
-            let existing = accumulateValue[date] ?? []
-            accumulateValue[date] = existing + [currentValue]
-        }
-        
-        return groupedByDate
-    }
+//    func groupByDate(weatherArray: [WeatherForecastModel]) -> [Date: [WeatherForecastModel]] {
+//        let preGroupDate: [Date: [WeatherForecastModel]] = [:]
+//        let groupedByDate = weatherArray.reduce(into: preGroupDate) { accumulateValue, currentValue in
+//            let components = Calendar.current.dateComponents([.year, .month,.day], from: currentValue.dt!)
+//            let date = Calendar.current.date(from: components)!
+//            let existing = accumulateValue[date] ?? []
+//            accumulateValue[date] = existing + [currentValue]
+//        }
+//        
+//        return groupedByDate
+//    }
 
 
     
